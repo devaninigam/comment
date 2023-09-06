@@ -36,20 +36,20 @@ function App() {
                     }])
           localStorage.setItem("comentList", JSON.stringify(localStor))
      }
-     // const tikCheck = () => {
-     //      if(inputData.tik == "y" || inputData.tik == "Y"){
-     //           return "✔";
-     //      }else{
-     //           return "_";
-     //      }
-     // }
      const tikCheck = () => {
-          if (inputData.tik === "y" || inputData.tik === "Y") {
-               return <span className='blue-star'>&#x2714;</span>; // Return a string with the checkmark character
-          } else {
-               return <span>_</span>; // Return a string with an underscore
+          if(inputData.tik == "y" || inputData.tik == "Y"){
+               return "✔";
+          }else{
+               return "_";
           }
-     };
+     }
+     // const tikCheck = () => {
+     //      if (inputData.tik === "y" || inputData.tik === "Y") {
+     //           return <span className='blue-star'>&#x2714;</span>; // Return a string with the checkmark character
+     //      } else {
+     //           return <span>_</span>; // Return a string with an underscore
+     //      }
+     // };
      return (
           <React.Fragment>
                <div className="container">
@@ -82,7 +82,7 @@ function App() {
                     <div key={index} className='map-data'>
                          <div className='user-data'>
                               <img className='comment-logo' src={item.img} />
-                              <span className='cover'>@{item.name}{item.tik}</span>
+                              <span className='cover'>@{item.name}<span className={item.tik ==="✔" ? "blue-star": ""}>{item.tik}</span></span>
                          </div>
                          <p>Comment: {item.comment}</p>
                     </div> 
